@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host = 'smtp.zoho.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'info@trivaunited.com'; // your Zoho email
-        $mail->Password = 'your_app_password';     // use an APP password from Zoho (not your login password)
+        $mail->Password = 'Irishespinar21!';     // use an APP password from Zoho (not your login password)
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
