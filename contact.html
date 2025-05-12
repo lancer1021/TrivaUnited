@@ -178,6 +178,35 @@
             });
         });
     </script>
+    <script>
+    const form = document.getElementById('contactForm');
+    const statusMessage = document.getElementById('statusMessage');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch('sendmail.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                statusMessage.style.display = 'block';
+                statusMessage.style.color = data.success ? 'green' : 'red';
+                statusMessage.innerText = data.message;
+                if (data.success) form.reset();
+            })
+            .catch(error => {
+                statusMessage.style.display = 'block';
+                statusMessage.style.color = 'red';
+                statusMessage.innerText = 'An error occurred. Please try again.';
+                console.error('Error:', error);
+            });
+    });
+</script>
+
 </body>
 
 </html>
